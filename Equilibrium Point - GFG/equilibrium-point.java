@@ -43,24 +43,18 @@ class Solution {
         {
             return 1;
         }
-       long leftsum = 0;
-       long rightsum = 0;
-       for(int i = 1; i < n; i++)
-       {
-           rightsum = rightsum + arr[i];
-       }
-       for(int i = 0; i < n-1; i++)
-       {
-           if(rightsum == leftsum)
-           {
-               return i+1;
-           }
-           else
-           {
-               rightsum = rightsum - arr[i+1];
-               leftsum = leftsum + arr[i];
-           }
-       }
-       return -1;
+        int sum = 0; // initialize sum of whole array
+        int leftsum = 0; // initialize leftsum
+        for (int i = 0; i < n; ++i)
+            sum += arr[i];
+ 
+        for (int i = 0; i < n; ++i) 
+        {
+            sum -= arr[i]; 
+            if (leftsum == sum)
+                return i+1;
+            leftsum += arr[i];
+        }
+        return -1;
     }
 }
