@@ -11,57 +11,34 @@ import java.util.*;
 //User function Template for Java
 
 
+
 class GFG
 {
-    ArrayList<Integer> find(int nums[], int n, int target)
+    ArrayList<Integer> find(int arr[], int n, int x)
     {
         // code here
-        ArrayList<Integer> res=new ArrayList<Integer>();
-        int low = 0 ;
-        int high = n-1;
-        int ans = -1; 
-        while( low <= high)
+        ArrayList<Integer> al = new ArrayList<>();
+        int val1 = -1;
+        int val2 = -1;
+        for (int i = 0; i < arr.length; i++) 
         {
-            int mid = (low + high)/2;
-            if(nums[mid] == target )
+            if (arr[i] == x) 
             {
-               ans = mid;
-               high = mid -1 ;
-            }
-            else if(nums[mid] > target )
-            {
-                high = mid - 1;
-            }
-            else 
-            {
-                low = mid +1 ;
+                if (val1 == -1) 
+                {
+                    val1 = i;
+                }
+                val2 = i;
             }
         }
-        res.add(ans);
-        low = 0 ;
-        high = nums.length - 1 ;
-        int ans1 = -1 ;
-        while(low <= high)
-        {
-            int mid = (low +high )/2 ;
-            if(nums[mid] == target )
-            {
-                 ans1 = mid ;
-                 low = mid + 1 ;
-            }
-            else if(nums[mid] > target)
-            {
-                high = mid -1 ;
-            }
-            else 
-            {
-                low = mid + 1 ;
-            }
-        }
-        res.add(ans1);
-        return res;
+        al.add(val1);
+        al.add(val2);
+        return al;
     }
 }
+
+
+
 
 //{ Driver Code Starts.
 
