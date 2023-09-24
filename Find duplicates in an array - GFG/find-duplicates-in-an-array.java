@@ -27,12 +27,15 @@ class Solution {
         // code here
         ArrayList<Integer>list = new ArrayList<>();
         HashMap<Integer,Integer>hs = new HashMap<>();
-        for(int i = 0; i<arr.length; i++){
+        for(int i = 0; i<arr.length; i++)
+        {
             hs.put(arr[i],hs.getOrDefault(arr[i],0)+1);
         }
-        for(int i : hs.keySet()){
-            int key = hs.get(i);
-            if(key > 1){
+        for(int i : hs.keySet())
+        {
+            // int key = hs.get(i);
+            if(hs.get(i) > 1)
+            {
                 list.add(i);
             }
         }
